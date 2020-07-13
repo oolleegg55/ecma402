@@ -277,7 +277,7 @@
         1. Perform ! CreateDataPropertyOrThrow(_nf2Options_, `"useGrouping"`, *false*).
         1. Let _nf2_ be ? Construct(%NumberFormat%, &laquo; _locale_, _nf2Options_ &raquo;).
         1. Let _fractionalSecondDigits_ be _dateTimeFormat_.[[FractionalSecondDigits]].
-        1. If _fractionalSecondDigits_ is not *undefined* and _fractionalSecondDigits_ is greater than 0, then
+        1. If _fractionalSecondDigits_ is not *undefined*, then
           1. Let _nf3Options_ be ObjectCreate(*null*).
           1. Perform ! CreateDataPropertyOrThrow(_nf3Options_, `"minimumIntegerDigits"`, _fractionalSecondDigits_).
           1. Perform ! CreateDataPropertyOrThrow(_nf3Options_, `"useGrouping"`, *false*).
@@ -321,10 +321,10 @@
               1. Let _fv_ be an implementation and locale dependent String value representing `"ante meridiem"`.
             1. Add new part record { [[Type]]: `"dayPeriod"`, [[Value]]: _fv_ } as a new element of the list _result_.
           1. Else if _p_ is equal to `"fractionalSecondDigits"`, then
-            1. If _fractionalSecondDigits_ is not *undefined* and _fractionalSecondDigits_ is greater than 0, then
+            1. If _fractionalSecondDigits_ is not *undefined*, then
               1. Let _v_ be _tm_.[[millisecond]].
               1. Let _v_ be floor(_v_ × 10<sup>( _fractionalSecondDigits_ - 3 )</sup>).
-              1. Let _fv_ be FormatNumber(_nf3_, _v_).
+              1. Let _fv_ be FormatNumeric(_nf3_, _v_).
               1. Append a new Record { [[Type]]: `"fractionalSecond"`, [[Value]]: _fv_ } as the last element of _result_.
           1. Else,
             1. Let _unknown_ be an implementation-, locale-, and numbering system-dependent String based on _x_ and _p_.
